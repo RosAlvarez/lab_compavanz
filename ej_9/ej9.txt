@@ -1,0 +1,3 @@
+a) no hay coalescencia en memoria global ya que aunque las lecturas en dev_a son realizadas en orden de columnas, lo  que supone que los datos accedidos son contiguos en memoria, a la hora de hacer escrituras en dev_b se tiene un stride de 43 elementos lo que supone que se debe acceder a segmentos en memoria distintos y cada escritura supone una transacción en memoria diferente.
+
+b) La forma de conseguir la coalescencia global tanto en lecturas como escrituras es utilizando un objeto en memoria compartida que actua de intermediario.

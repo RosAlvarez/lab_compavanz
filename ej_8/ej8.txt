@@ -1,0 +1,4 @@
+		|	DA	|	DB	|	DC	    |
+		--------------------------------------------------|
+suma-vectores	|  301,2168 ms	|17,744 microseg|  10,238 microseg |			
+suma-vect-pinned| 232,5045 ms  |8,795 microseg |   6,078 microseg |			

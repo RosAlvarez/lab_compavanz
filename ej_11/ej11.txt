@@ -1,0 +1,5 @@
+Tenemos 16 bancos que almacenan 4 bytes cada uno de forma sucesiva. En este caso al tener un segmento compartido de 8x8 (32 elementos = 256 bytes), los elementos k y k+16 se encontrarían en el mismo banco, lo que supone que los threads accediendo a esos elementos a la vez supondría un conflicto. 
+Para solucionarlo se añade un padding al nº de columnas del segmento de memoria.
+
+
+

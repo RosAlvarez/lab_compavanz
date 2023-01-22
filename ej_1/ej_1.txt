@@ -1,0 +1,19 @@
+EJERCICIO 1:
+
+Tiempo total de la sesion: 278,52657 ms
+Kernel: 1,632 microsegundos
+cudaMalloc DA: 256,2954 ms
+cudaMalloc DB: 6,076 microsegundos
+cudaMalloc DC: 3,997 microsegundos
+cudaMemcpy DA <- HA:
+	Latencia: 17,327 microsegundos
+	Tiempo dedicado: 896 nanosegundos
+	Ancho de banda: 2,232 GB/s
+cudaMemcpy DB <- HB:
+	Latencia: 6,445 microsegundos
+	Tiempo dedicado: 768 nanosegundos
+	Ancho de banda: 2,604 GB/s
+cudaMemcpy HC <- DC:
+	Latencia: 15,018 microsegundos
+	Tiempo dedicado: 832 nanosegundos
+	Ancho de banda: 2,404 GB/s 

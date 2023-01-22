@@ -1,0 +1,12 @@
+Para hacer que el programa realice una suma de vectores con un bloque de un solo hilo:
+
+Dejamos las dimensiones del bloque como estaban (N=600) pero cambiamos el lanzamiento del kernel a un solo bloque de un solo hilo (se tiene que encargar de todo el computo):
+
+VecAdd <<<1, 1>>>(DA, DB, DC)
+
+Y modificamos la función del kernel para que funcione correctamente:
+
+for(int i=0; i<N; i++)
+  DC[i] = DA[i]+DB[i];
+  
+Con estos cambios el programa debe ejecutarse correctamente.

@@ -1,0 +1,13 @@
+Para comparar los tiempos empleados por el kernel en los diferentes programas, ejecutaremos el profiler en cada ejecutable.
+
+suma_vectores1b.cu: La duración del kernel (VecAdd) es de 1,569 microsegundos
+
+suma_vectores2.cu: La duración del kernel (VecAdd) es de 102,496 microsegundos
+
+suma_vectores3.cu: La duración del kernel (VecAdd) es de 3,456 microsegundos 
+
+La razón por la que el primer caso (suma_vectores1b.cu) tiene la menor duración es porque es el que mejor explota la paralelización, usando N hilos que comparten memoria.
+
+El segundo caso (suma_vectores2.cu) es el más lento ya que no realiza ninguna paralelización al solo usar 1 bloque de 1 solo hilo. Esto equivale a una ejecución secuencial.
+
+El tercer caso (suma_vectores3.cu) no es el más rápido porque la paralelización se realiza entre distintos streamming multiprocessors. Aun así es mejor opción que el segundo caso.

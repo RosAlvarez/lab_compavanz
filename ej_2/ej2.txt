@@ -1,0 +1,18 @@
+En la primera ejecución al hacer el cambio de hebras a 600, vemos que ejecutando el codigo el resultado indica: "error en componente 0"
+
+a) Para verificar si se produce un error en las llamadas a cudaMalloc() o cudaMemcpy() necesitamos añadir unas lineas de codigo:
+Cada operación Cuda es capaz de devolver una variable que indica si la función se ha ejecutado correctamente o ha habido un error.
+En cada operación cuda debemos añadir "cudaError_t err" como valor de retorno y comprobar con un condicional si esta es igual a cudaSuccess o no. En caso negativo, imprimiremos el error con printf("%s\n", cudaGetErrorString(err))
+
+b) Para comprobar posibles errores en la ejecución del kernel debemos comprobar tanto los sincronos como los asíncronos.
+-Errores síncronos: cudaError_t errSync = cudaGetLastError()
+-Errores asíncronos: cudaError_t errAsync = cudaDeviceSynchronize();
+
+Estos devuelven valores que debemos analizar si indican error o no en la ejecución:
+if(errSync != cudaSuccess) printf("Sync kernel error: %s\n", cudaGetErrorString(errSync))
+if(errAsync != cudaSuccess) printf("Async kernel error: %s\n", cudaGetErrorString(cudaGetLastError()))
+
+c) -
+
+d) No se han detectado errores
+

@@ -1,0 +1,1 @@
+Al no existir la barrera __synthreads(), supondría que los hilos que se encargan en hacer la escritura de los elementos en el espacio de memoria compartido no son esperados a que acaben, por lo que los hilos que realizan la escritura de vuelta a la matriz compuesta en algunos casos son más rápidos que los primeros, haciendo que haya fallos en la transposición.

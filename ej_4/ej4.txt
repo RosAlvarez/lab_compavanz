@@ -1,0 +1,12 @@
+Para hacer que el programa realice la suma de vectores con N bloques de un solo hilo:
+
+Tenemos que modificar el lanzamiento del kernel. Considerando que N=600, usamos N como el número de bloques. Cada bloque solo tiene un hilo/hebra:
+
+VecAdd <<<N, 1>>>(DA, DB, DC)
+
+Para que la ejecución de la suma de vectores se haga correctamente, tenemos que modificar también el programa que ejcutará el kernel:
+
+int i = blockIdx.x;
+ DC[i] = DA[i] + DB[i];
+
+Con estos cambios el programa debe ejecutarse correctamente.

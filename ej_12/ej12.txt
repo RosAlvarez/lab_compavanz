@@ -1,0 +1,9 @@
+transpuesta1.cu: duración de sesión 510,88 ms
+
+transpuesta2.cu: duración de sesión 428,89 ms
+
+transpuesta3.cu: duración de sesión 305,32 ms
+
+La duración disminuye con respecto a transpuesta1 debido a que el código con coalescencia implica una disminución en el número de transacciones a memoria, trayendo más datos en 1 sola transacción (mayor efectividad de bandwidth), por lo que los tiempos de kernel dedicados a acceder a los datos disminuyen. 
+
+También hay una diferencia entre transpuesta2.cu y transpuesta3.cu debido a que evitamos que sucedan los conflictos de banco. Cuando ocurría un conflicto la petición de acceso a datos se serializaba esperando a que la primera acabase lo que supone un retardo. En el caso 3, esto no ocurre lo que significa que el tiempo es menor.
